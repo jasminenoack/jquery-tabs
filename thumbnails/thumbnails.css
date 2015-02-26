@@ -17,10 +17,14 @@ figure {
   display: block;
 }
 
+.thumbnails .active {
+  display: block;
+}
+
 .thumbnails li{
   height: 36px;
   width:55px;
-  display: block;
+  display: none;
   float: left;
 }
 
@@ -28,4 +32,8 @@ figure {
   width: 20px;
   display: block;
   float: left;
+}
+
+button {
+  margin-top: 10px;
 }
