@@ -27,13 +27,13 @@ li {
   width: 200px;
   border: 10px solid green;
   position: relative;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .items > .active {
   display: block;
   left: 0%;
-  transition: left 1s;
+  transition: left 0.5s;
   position: absolute;
 }
 

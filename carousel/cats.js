@@ -5,39 +5,55 @@
 
     this.activeIdx = 0;
 
+
     this.$el.find(".slide-left").on("click", function () {
       this.slideLeft();
     }.bind(this));
     this.$el.find(".slide-right").on("click", function () {
       this.slideRight();
     }.bind(this));
+
+    this.resetActiveItem();
+    this.transitioning = false;
   };
 
-  $.Carousel.prototype.slide = function (dir, classDir) {
-    var carouselLength = this.$items.length
-    this.$items.removeClass("active")
+  $.Carousel.prototype.slide = function (dir, classDir, outDir) {
+    if (this.transitioning) {
+      return;
+    };
+    this.transitioning = true;
+
+    var carouselLength = this.$items.length;
+    var $oldActiveItem = this.$activeItem;
 
     // javascript is terrible so we have to do this ridiculous work around to make the modulo operator work appropriately.
-    this.activeIdx = (this.activeIdx + dir + carouselLength) % carouselLength
-    var right = (this.activeIdx + 1 + carouselLength) % carouselLength
-    var left = (this.activeIdx -1 + carouselLength) % carouselLength
+    this.activeIdx = (this.activeIdx + dir + carouselLength) % carouselLength;
+    this.resetActiveItem();
 
-    this.$items.eq(this.activeIdx).addClass("active " + classDir);
-    // this.$items.eq(left).addClass("left");
-    // this.$items.eq(right).addClass("right");
+    this.$activeItem.addClass("active " + classDir);
+
     setTimeout( function () {
-      // this.$items.eq(left).removeClass("left");
-      // this.$items.eq(right).removeClass("right");
-      this.$items.eq(this.activeIdx).removeClass(classDir);
-    }.bind(this))
-  }
+      $oldActiveItem.addClass(outDir);
+      this.$activeItem.removeClass(classDir);
+
+      this.$activeItem.one("transitionend", function (event) {
+        $oldActiveItem.removeClass();
+        this.transitioning = false;
+      }.bind(this));
+
+    }.bind(this));
+  };
+
+  $.Carousel.prototype.resetActiveItem = function () {
+    this.$activeItem = this.$items.eq(this.activeIdx);
+  };
 
   $.Carousel.prototype.slideLeft = function () {
-    this.slide(-1, "left");
+    this.slide(-1, "left", "right");
   };
 
   $.Carousel.prototype.slideRight = function () {
-    this.slide(1, "right");
+    this.slide(1, "right", "left");
   };
 
 
