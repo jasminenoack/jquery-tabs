@@ -1,0 +1,33 @@
+img {
+  height: 100%;
+  width: 100%;
+}
+
+figure {
+  margin: 0;
+}
+
+li {
+  height: 250px;
+  width: 200px;
+  float: left;
+}
+
+.items {
+  height: 250px;
+  width:1000px
+}
+
+.items > li {
+  display: none;
+}
+
+.carousel > figure {
+  width: 200px;
+  border: 10px solid green;
+  /*overflow: hidden;*/
+}
+
+.items > .active {
+  display: block;
+}
