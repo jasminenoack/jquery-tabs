@@ -3,10 +3,42 @@
   <head>
     <title>My Cool Website</title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.2/build/cssreset/cssreset-min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="./tabs.js"></script>
     <link href="./tabs.css" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
 
-  <body></body>
+  <body>
+    <ul class="tabs" data-content-tabs="#content-tabs">
+      <li><a class="active" href="#polish">The Polish Lowland Sheepdog</a></li>
+      <li><a href="#golden">Golden Retriever</a></li>
+      <li><a href="#irish">Irish Wolfhound</a></li>
+    </ul>
+
+    <main id="content-tabs">
+      <article class="tab-pane active" id="polish">
+        <p>
+          The Polish Lowland Sheepdog, or "PON" for short, is lively, watchful, intelligent, confident, and fearless. He works as a herding dog and a watchdog, and also makes a great companion for the right family. A PON has a strong temperament and individuality. He was born to guard and he does it well, patrolling his territory with earnest. He is an independent thinker and can be stubborn. He needs an assertive owner and consistent training from an early age, or he will dominate his master. If they trust and respect their owner, PONs are easier to train. They are usually easy to housetrain. A PON needs an active lifestyle. He loves to spend time outdoors. He thrives with one or two good walks each day, and loves to have a job to do, such as agility work. If a PON gets bored, or doesn't get enough exercise, he will destroy your house and your flower garden. He is loyal, affectionate, and loving toward his family. He thrives on having close contact with people. He is gentle with children if socialized around them at an early age, although he might try to herd them. He also does well with other animals, especially if socialized. He is often suspicious of strangers. He is a professional barker and will alert you if anything unusual is going on. All in all, the PON is perceptive, curious, sincere, happy, and very adaptable. They are spirited yet stable, and they mature quickly. They are smart and have excellent memories.
+        </p>
+      </article>
+      <article class="tab-pane" id="golden">
+        <p class="comic-sans">
+          Golden Retrievers are friendly, reliable, and trustworthy dogs. Golden Retrievers get along well with other dogs and should not show any aggressiveness or hostility towards other dogs or people in normal situations.
+        </p>
+      </article>
+      <article class="tab-pane" id="irish">
+        <p>
+          Do you want to bring a gentle giant into your home? I'm talking giant. He will be able to rest his head on the dining room table. And if you look away, he will steal the food off your plate! And did I mention that they eat a lot of food! They are eating-machines. Irish Wolfhounds are big sweethearts and will want (need) to be part of your family. They are affectionate, not as cuddly as some other breeds, but they still want to be with you. They do not do well if left alone for hours on end. These are active dogs who need daily exercise to be happy. They love to take long walks, but be prepared to bring large plastic bags with you! (To pick up his large messes). The Irish Wolfhound is a sight hound with a high prey drive and he will chase animals (and cars). And if he gets away, good luck catching him -- they are fast, and were bred to be endurance runners. A fenced-in yard is very important for this breed. Because the breed is so large, it is important to start obedience training as soon as possible. They are moderately quick learners! They are moderately obedient, and many of them do well in the obedience ring, as well as the agility ring. Irish Wolfhounds are usually quick to housetrain. Some Irish Wolfhounds do well with cats, but many do not. They do usually like to live with other dogs, but should not be raised with more aggressive breeds. Irish Wolfhounds do very well with well-behaved children. (Just make sure the children do not try to ride the dog -- he is not a horse even though he kind of looks like one!) Young children should be supervised because a Wolfhound can easily accidentally knock them over. Irish Wolfhounds may or may not bark at intruders which makes them a poor watchdog, but often their incredible size and deep bark is enough to thwart any criminals. They are generally aloof with strangers. Irish Wolfhound fanciers use an old Irish proverb to describe the breed: Gentle when stroked, fierce when provoked. But overall, this is a loyal, happy, friendly breed who will climb into your bed, lie on his back with his feet in the air, and snore. You'll need a big car to transport him!
+        </p>
+      </article>
+    </main>
+
+    <script>
+      $(function() {
+        $('.tabs').tabs();
+      })
+    </script>
+
+
+  </body>
 </html>

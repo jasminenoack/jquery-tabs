@@ -1,5 +1,12 @@
-<script>
-  $(function() {
-    $('.tabs').tabs();
-  })
-</script>
+.tab-pane {
+  display: none;
+}
+
+.active {
+  display: block;
+  font-weight: bold;
+}
+
+.comic-sans {
+  font-family: "Comic Sans MS";
+}
