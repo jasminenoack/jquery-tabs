@@ -1,36 +1,34 @@
 ;(function () {
 
 $.Tabs = function (el) {
-  this.$el          = $(el);
-  this.$contentTabs = $(this.$el.data("content-tabs"));
-  this.$activeTab   = $(this.$contentTabs.find(".active"));
+  this.$el = $(el);
 
-  this.$el.on("click", "a", this.clickTab.bind(this));
-};
+  this.$tabs = this.$el.find(".tab")
+  this.$activeTab = this.$tabs.eq(0).addClass("active")
 
-$.fn.tabs = function () {
-  return this.each(function () {
-    new $.Tabs(this);
-  });
+  this.$tabPanes = this.$el.find(".tab-pane");
+  this.$activeTabPane = this.$tabPanes.eq(0).addClass("active")
+
+  this.$el.on("click", ".tab", this.clickTab.bind(this));
 };
 
 $.Tabs.prototype.clickTab = function (event) {
   event.preventDefault();
-  this.$el.find("a").removeClass("active");
-  $(event.currentTarget).addClass("active");
 
-  this.$activeTab.removeClass("active").addClass("transitioning");
+  this.$activeTab.removeClass("active");
+  this.$activeTab = $(event.currentTarget)
+  this.$activeTab.addClass("active");
 
-  this.$activeTab.one("transitionend", function () {
-    this.$activeTab.removeClass("transitioning");
-
-    // this.$activeTab = $();
-    this.$activeTab = this.$contentTabs.find($(event.currentTarget).attr("href"));
-    this.$activeTab.addClass("active transitioning");
-    setTimeout(function () {
-      this.removeClass("transitioning")
-    }.bind(this.$activeTab), 0);
-  }.bind(this));
+  this.$activeTabPane.removeClass("active")
+  this.$activeTabPane = this.$tabPanes.eq(this.$activeTab.index())
+  this.$activeTabPane.addClass("active")
 };
+
+
+$.fn.Tabs = function () {
+  return this.each(function () {
+    new $.Tabs(this);
+  });
+}
 
 })();

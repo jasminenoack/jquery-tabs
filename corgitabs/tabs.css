@@ -1,19 +1,66 @@
+html, body {margin:0;padding:0;height:100%;}  /* comment out this line */
+
+#content-tabs, .tabs, .tab, .tab-pane, .tab-pane p {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  text-align: inherit;
+  text-decoration: none;
+}
+
+#content-tabs {
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  background: yellow;
+  position: relative;
+  display: block;
+  border: 2px solid black;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.tabs {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  background: red;
+}
+
+.tab {
+  float: left;
+  padding: 20px;
+  border: 2px solid black;
+  flex-grow: 1;
+  font-size: 20px;
+}
+
+.tab:hover {
+  background: red
+}
+
 .tab-pane {
   display: none;
-  transition: opacity 0.5s;
+  transition: opacity 0.1s;
+  border: 2px solid black;
+  height: calc(100% - 68px);
+
 }
 
 .active {
   display: block;
-  font-weight: bold;
+  /*font-weight: bold;*/
+  background: blue;
 }
 
 .transitioning {
   display: block;
   font-weight: bold;
   opacity: 0;
-}
-
-.comic-sans {
-  font-family: "Comic Sans MS";
 }
