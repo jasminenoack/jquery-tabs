@@ -1,4 +1,14 @@
-html, body {margin:0;padding:0;height:100%;}  /* comment out this line */
+body {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  margin: 20px auto;
+  width: 800px;
+  height: 600px;
+}
+
+/* comment out this line */
 
 #content-tabs, .tabs, .tab, .tab-pane, .tab-pane p {
   border: 0;
@@ -12,12 +22,12 @@ html, body {margin:0;padding:0;height:100%;}  /* comment out this line */
 }
 
 #content-tabs {
-  height: calc(100% - 4px);
-  width: calc(100% - 4px);
-  background: yellow;
+  height: calc(100%);
+  width: calc(100%);
   position: relative;
   display: block;
-  border: 2px solid black;
+  color: #A34E24;
+  font-size: 16px;
 }
 
 .group:after {
@@ -30,7 +40,6 @@ html, body {margin:0;padding:0;height:100%;}  /* comment out this line */
   list-style: none;
   display: flex;
   width: 100%;
-  background: red;
 }
 
 .tab {
@@ -38,29 +47,36 @@ html, body {margin:0;padding:0;height:100%;}  /* comment out this line */
   padding: 20px;
   border: 2px solid black;
   flex-grow: 1;
+  flex-basis: 0;
   font-size: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  background: #EA7D24;
 }
 
 .tab:hover {
-  background: red
+  background: #EE9C21;
 }
 
 .tab-pane {
   display: none;
   transition: opacity 0.1s;
   border: 2px solid black;
-  height: calc(100% - 68px);
+  border-top: 0;
+  height: calc(100% - 106px);
+  padding: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 
 }
 
-.active {
-  display: block;
-  /*font-weight: bold;*/
-  background: blue;
+.active.tab{
+  background: #F9DF8D;
+  border-bottom: 0;
 }
 
-.transitioning {
+.active.tab-pane{
   display: block;
-  font-weight: bold;
-  opacity: 0;
+  font-weight: 550;
+  background: #F9DF8D;
 }
