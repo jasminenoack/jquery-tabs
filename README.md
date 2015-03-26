@@ -11,8 +11,8 @@ To use this plugin:
   2. Give the content sections a class of "tab-pane"
 3. Run this script at the bottom of your file: 
 
-    <script>
+
       $(function() {
         $('#content-tabs').Tabs();
       })
-    </script>
+
