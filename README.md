@@ -12,7 +12,7 @@ To use this plugin:
 3. Run this script at the bottom of your file: 
 
 
-      $(function() {
-        $('#content-tabs').Tabs();
-      })
+   $(function() {
+     $('#content-tabs').Tabs();
+   })
 
